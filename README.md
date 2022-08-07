@@ -13,10 +13,10 @@ node -v
 npm -v
 npm init
 
-then automatically your folder Node modules and some packages donwload
+then automatically your folder Node modules and some packages download
 
 
-and run your program in your ternimal
+and run your program in your terminal
 
 
 Syntax      node index10.js
