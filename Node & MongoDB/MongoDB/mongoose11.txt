@@ -1,0 +1,92 @@
+//schema and module in mongoose
+Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection
+ nd defines the shape of the documents within that collection.
+
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
+const blogSchema = new Schema({
+  title:  String, // String is shorthand for {type: String}
+  author: String,
+  body:   String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
+  hidden: Boolean,
+  meta: {
+    votes: Number,
+    favs:  Number
+  }
+});
+If you want to add additional keys later, use the Schema#add method.
+
+Each key in our code blogSchema defines a property in our documents which will be cast to its associated SchemaType. For example, we've defined a property title which will be cast to the String SchemaType and property date which will be cast to a Date SchemaType.
+
+Notice above that if a property only requires a type, it can be specified using a shorthand notation (contrast the title property above with the date property).
+
+Keys may also be assigned nested objects containing further key/type definitions like the meta property above. This will happen whenever a key's value is a POJO that doesn't have a type property.
+
+In these cases, Mongoose only creates actual schema paths for leaves in the tree. (like meta.votes and meta.favs above), and the branches do not have actual paths. A side-effect of this is that meta above cannot have its own validation. If validation is needed up the tree, a path needs to be created up the tree - see the Subdocuments section for more information on how to do this. Also read the Mixed subsection of the SchemaTypes guide for some gotchas.
+
+The permitted SchemaTypes are:
+
+String
+Number
+Date
+Buffer
+Boolean
+Mixed
+ObjectId
+Array
+Decimal128
+Map
+Read more about SchemaTypes here.
+
+Schemas not only define the structure of your document and casting of properties, they also define document instance methods, static Model methods, compound indexes, and document lifecycle hooks called middleware.
+
+Creating a model
+To use our schema definition, we need to convert our blogSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema):
+
+const Blog = mongoose.model('Blog', blogSchema);
+// ready to go!
+Ids
+By default, Mongoose adds an _id property to your schemas.
+
+const schema = new Schema();
+
+schema.path('_id'); // ObjectId { ... }
+When you create a new document with the automatically added _id property, Mongoose 
+creates a new _id of type ObjectId to your document.
+
+const Model = mongoose.model('Test', schema);
+
+const doc = new Model();
+doc._id instanceof mongoose.Types.ObjectId; // true
+You can also overwrite Mongoose's default _id with your own _id. Just be careful: Mongoose will refuse to save a document that doesn't have an _id, so you're responsible for setting _id if you define your own _id path.
+
+const schema = new Schema({ _id: Number });
+const Model = mongoose.model('Test', schema);
+
+const doc = new Model();
+await doc.save(); // Throws "document must have an _id before saving"
+
+doc._id = 1;
+await doc.save(); // works
+Instance methods
+Instances of Models are documents. Documents have many of their own built-in instance methods. We may also define our own custom document instance methods.
+
+// define a schema
+const animalSchema = new Schema({ name: String, type: String },
+{
+  // Assign a function to the "methods" object of our animalSchema through schema options.
+  // By following this approach, there is no need to create a separate TS type to define the type of the instance functions.
+  methods:{
+    findSimilarTypes(cb){
+      return mongoose.model('Animal').find({ type: this.type }, cb);
+    }
+  }
+});
+
+// Or, assign a function to the "methods" object of our animalSchema
+animalSchema.methods.findSimilarTypes = function(cb) {
+  return mongoose.model('Animal').find({ type: this.type }, cb);
+};

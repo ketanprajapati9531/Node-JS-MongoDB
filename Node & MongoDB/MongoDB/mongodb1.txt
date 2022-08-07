@@ -1,0 +1,88 @@
+MongoDB Introduction:-
+
+MongoDB, the most popular NoSQL database, is an open-source document-oriented database.
+The term ‘NoSQL’ means ‘non-relational’. It means that MongoDB isn’t based on the table-
+like relational database structure but provides an altogether different mechanism for 
+storage and retrieval of data. This format of storage is called BSON ( similar to JSON 
+format). 
+
+A simple MongoDB document Structure: 
+
+{
+  title: 'Geeksforgeeks',
+  by: 'Harshit Gupta',
+  url: 'https://www.geeksforgeeks.org',
+  type: 'NoSQL'
+} 
+
+SQL:-RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS)	
+NoSQL:-Non-relational or distributed database system.
+
+SQL:-These databases have fixed or static or predefined schema	
+NoSQL:-They have dynamic schema
+
+SQL:-These databases are not suited for hierarchical data storage.	
+NoSQL:-These databases are best suited for hierarchical data storage.
+
+SQL:-These databases are best suited for complex queries	
+NoSQL:-These databases are not so good for complex queries
+
+SQL:-Vertically Scalable
+NoSQL:-	Horizontally scalable
+
+SQL:-Follows ACID property	
+NoSQL:-Follows CAP(consistency, availability, partition tolerance)
+
+SQL:-Examples: MySQL, PostgreSQL, Oracle, MS-SQL Server etc	
+NoSQL:-Examples: MongoDB, GraphQL, HBase, Neo4j, Cassandra etc
+
+
+
+JSON:-Standard file format Type.	
+BSON:-Binary file format Type.
+
+JSON:-Language free organize utilized for offbeat server browser communication.	
+ BSON:-     Binary JSON which comprise of a list of requested components containing a
+          field title, sort, and a esteem. Field title sorts are ordinarily a string.
+
+JSON:-Broadly JSON comprises of question and cluster where the question could be a 
+collection of key-value sets and the cluster is requested list of values.	
+ BSON:-   The parallel encoding method comprises of extra data such as lengths of
+  strings and the protest subtypes. In addition, BinData and Date information sorts are
+   the information sorts which are not upheld in JSON.
+
+JSON:-JSON stands for JavaScript Object Notation.
+BSON:-	BSON stands for Binary JavaScript Object Notation.
+
+JSON:-JSON data contains its data basic in JSON format.	
+BSON:-BSON gives extra datatypes over the JSON data.
+
+JSON:-Database like AnyDB, redis etc stores information into JSON format.	
+BSON:-MongoDB stores data in BSON format.
+
+JSON:-JSON uses less space in comparison to BSON.	
+BSON:-BSON uses more space as compared to JSON.
+
+MongoDB Features
+Ad-hoc queries for optimized, real-time analytics. ...
+Indexing appropriately for better query executions. ...
+Replication for better data availability and stability. ...
+Sharding. ...
+Load balancing.
+
+Where do we use MongoDB?
+
+MongoDB is preferred over RDBMS in the following scenarios:
+
+Big Data: If you have huge amount of data to be stored in tables, think of MongoDB before
+RDBMS databases. MongoDB has built-in solution for partitioning and sharding your database.
+
+Unstable Schema: Adding a new column in RDBMS is hard whereas MongoDB is schema-less.
+ Adding a new field does not effect old documents and will be very easy.
+ 
+Distributed data Since multiple copies of data are stored across different servers,
+recovery of data is instant and safe even if there is a hardware failure.
+Language Support by MongoDB:
+
+MongoDB currently provides official driver support for all popular programming languages 
+like C, C++, Rust, C#, Java, Node.js, Perl, PHP, Python, Ruby, Scala, Go, and Erlang.

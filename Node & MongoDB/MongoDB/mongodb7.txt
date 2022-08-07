@@ -1,0 +1,38 @@
+Delete Operations
+Delete operations operate on a single collection, like update and create operations.
+Delete operations are also atomic for a single document. You can provide delete 
+operations with filters and criteria in order to specify which documents you would 
+like to delete from a collection. The filter options rely on the same syntax that
+read operations utilize.
+
+MongoDB has two different methods of deleting records from a collection:
+
+db.collection.deleteOne()
+db.collection.deleteMany()
+
+
+deleteOne()
+deleteOne() is used to remove a document from a specified collection on the MongoDB 
+server. A filter criteria is used to specify the item to delete. It deletes the first
+record that matches the provided filter.
+
+db.RecordsDB.deleteOne({name:"Maki"})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.RecordsDB.find()
+{ "_id" : ObjectId("5fd98ea9ce6e8850d88270b5"), "name" : "Kitana", "age" : "4 years", "species" : "Cat", "ownerAddress" : "521 E. Cortland", "chipped" : true }
+{ "_id" : ObjectId("5fd993a2ce6e8850d88270b7"), "name" : "Marsh", "age" : "5", "species" : "Dog", "ownerAddress" : "451 W. Coffee St. A204", "chipped" : true }
+{ "_id" : ObjectId("5fd993f3ce6e8850d88270b8"), "name" : "Loo", "age" : "5", "species" : "Dog", "ownerAddress" : "380 W. Fir Ave", "chipped" : true }
+
+
+
+deleteMany()
+deleteMany() is a method used to delete multiple documents from a desired collection with
+ a single delete operation. A list is passed into the method and the individual items are 
+ defined with filter criteria as in deleteOne().
+
+db.RecordsDB.deleteMany({species:"Dog"})
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.RecordsDB.find()
+{ "_id" : ObjectId("5fd98ea9ce6e8850d88270b5"), "name" : "Kitana", "age" : "4 years",
+ "species" : "Cat"} 
+ 

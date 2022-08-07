@@ -1,0 +1,85 @@
+What is CRUD in MongoDB?
+CRUD operations describe the conventions of a user-interface that let users view,
+search, and modify parts of the database.
+
+MongoDB documents are modified by connecting to a server, querying the proper documents,
+and then changing the setting properties before sending the data back to the database to
+be updated. CRUD is data-oriented, and it’s standardized according to HTTP action verbs.
+
+When it comes to the individual CRUD operations:
+
+The Create operation is used to insert new documents in the MongoDB database.
+The Read operation is used to query a document in the database.
+The Update operation is used to modify existing documents in the database.
+The Delete operation is used to remove documents in the database.
+
+How to Perform CRUD Operations
+Now that we’ve defined MongoDB CRUD operations, we can take a look at how to carry out
+the individual operations and manipulate documents in a MongoDB database. Let’s go into
+the processes of creating, reading, updating, and deleting documents, looking at each 
+operation in turn.
+
+Create Operations
+For MongoDB CRUD, if the specified collection doesn’t exist, the create operation will 
+create the collection when it’s executed. Create operations in MongoDB target a single 
+collection, not multiple collections. Insert operations in MongoDB are atomic on a single
+document level.
+
+MongoDB provides two different create operations that you can use to insert documents
+into a collection:
+
+db.collection.insertOne()
+db.collection.insertMany()
+insertOne()
+As the namesake, insertOne() allows you to insert one document into the collection. 
+For this example, we’re going to work with a collection called RecordsDB. We can insert 
+a single entry into our collection by calling the insertOne() method on RecordsDB. 
+We then provide the information we want to insert in the form of key-value pairs, 
+establishing the schema.
+
+db.RecordsDB.insertOne({
+    name: "Marsh",
+    age: "6 years",
+    species: "Dog",
+    ownerAddress: "380 W. Fir Ave",
+    chipped: true
+})
+
+If the create operation is successful, a new document is created. The function will return an object where “acknowledged” is “true” and “insertID” is the newly created “ObjectId.”
+
+> db.RecordsDB.insertOne({
+... name: "Marsh",
+... age: "6 years",
+... species: "Dog",
+... ownerAddress: "380 W. Fir Ave",
+... chipped: true
+... })
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("5fd989674e6b9ceb8665c57d")
+}
+insertMany()
+It’s possible to insert multiple items at one time by calling the insertMany() method on the desired collection. In this case, we pass multiple items into our chosen collection (RecordsDB) and separate them by commas. Within the parentheses, we use brackets to indicate that we are passing in a list of multiple entries. This is commonly referred to as a nested method.
+
+db.RecordsDB.insertMany([{
+    name: "Marsh",
+    age: "6 years",
+    species: "Dog",
+    ownerAddress: "380 W. Fir Ave",
+    chipped: true},
+      {name: "Kitana", 
+      age: "4 years", 
+      species: "Cat", 
+      ownerAddress: "521 E. Cortland", 
+      chipped: true}])
+
+db.RecordsDB.insertMany([{ name: "Marsh", age: "6 years", species: "Dog", 
+ownerAddress: "380 W. Fir Ave", chipped: true}, {name: "Kitana", age: "4 years", 
+species: "Cat", ownerAddress: "521 E. Cortland", chipped: true}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5fd98ea9ce6e8850d88270b4"),
+                ObjectId("5fd98ea9ce6e8850d88270b5")
+        ]
+}

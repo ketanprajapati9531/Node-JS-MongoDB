@@ -1,0 +1,51 @@
+//mongoDB compass install
+//windrow msi 
+//above 150mb
+
+In compass select "connect"
+
+In cmd "set vaiable path" "mongo"    connect or not check mongoDB
+
+
+MongoDB Compass is a powerful GUI for querying, aggregating, and analyzing your MongoDB
+data in a visual environment. Compass is free to use and source available, and can be run
+on macOS, Windows, and Linux.
+
+MongoDB Compass is the official GUI for MongoDB, maintained by MongoDB itself. MongoDB
+Compass helps users make clever decisions about the data structure, querying, indexing, 
+and many more actions you can perform on the database.
+
+
+
+
+What is MongoDB Compass?
+MongoDB Compass is a GUI to explore, analyze, and interact with the content stored in a 
+MongoDB database without knowing or using queries.
+
+Compass a GUI alternative to the Mongo shell, which we’ve previously discussed. 
+MongoDB Compass is an open-source tool. You can find its GitHub repository here.
+
+What can you do with MongoDB Compass?
+MongoDB Compass is a much better alternative for the Mongo shell. 
+Compass can carry out all the operations that Mongo Shell does and more, including:
+
+Visualize and explore data stored in your database
+Create databases and Insert, update, and delete data in your database
+Get immediate real-time server statistics
+Understand performance issues with visual explain plans
+Manage your indexes
+Validate your data with JSON schema validation rules
+Extendable via plugins
+You can enjoy the benefits of MongoDB’s powerful features by installing the
+full version of Compass. It’s free to use for everyone and will make working with 
+MongoDB easier than any other tool.
+
+Now, let’s install MongoDB Compass.
+
+Installing MongoDB Compass
+It’s important to note that MongoDB Compass comes in three editions:
+
+Compass has the full capabilities and features of MongoDB Compass.
+Compass Read-Only is limited to the read operations. You won’t have the capability 
+to edit, write, or delete.
+Compass Isolated does not involve any requests for the network.

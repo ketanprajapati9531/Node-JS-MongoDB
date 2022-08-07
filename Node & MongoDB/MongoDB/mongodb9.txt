@@ -1,0 +1,14 @@
+In compass click on ADD data
+_insert document
+_name,type,active  ....insert 
+_Edit available_click on update
+_delete document for delete
+
+clickable create,insert,delete,update easily work just like Mysql.
+_reset compass.
+
+
+
+visit __      https://hackmd.io/@abernier/ByLrwUniS
+
+

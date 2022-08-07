@@ -1,0 +1,22 @@
+//mongoose
+
+Collection validation of the MongoDB database can be done easily. 
+Predefined Structure can be implemented on the collection. 
+Constraints can be applied to documents of collections using Mongoose
+
+Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. 
+It manages relationships between data, provides schema validation, and 
+is used to translate 
+between objects in code and the representation of those objects in MongoDB.
+
+MongoDB is a schema-less NoSQL document database. It means you can store JSON documents 
+in it, and the structure of these documents can vary as it is not enforced like SQL
+databases. This is one of the advantages of using NoSQL as it speeds up application 
+development and reduces the complexity of deployments.
+
+In terminal write...
+1)npm i mongoose    //node_module   package-lock.json   package.json in folder
+2)npm install mongoose
+
+
+

@@ -1,0 +1,12 @@
+Step 1 — Download the MongoDB MSI Installer Package
+Step 2 — A. Install MongoDB with the Installation Wizard
+         B. Click Next to start installation.
+         C. Accept the licence agreement then click Next.
+         D. Select the Complete setup.
+         E. Select “Run service as Network Service user” and make a note of 
+         the data directory, we’ll need this later.
+         F. We won’t need Mongo Compass, so deselect it and click Next.
+         G. Click Install to begin installation.
+         F. Hit Finish to complete installation.
+Step 3— Create the Data Folders to Store our Databases
+        //don't need in vesrion 5,6,....  its automatically available.

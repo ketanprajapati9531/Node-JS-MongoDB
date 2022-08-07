@@ -1,0 +1,170 @@
+DATABASE:-
+
+The use Command
+MongoDB use DATABASE_NAME is used to create database. The command will create a new 
+database if it doesn't exist, otherwise it will return the existing database.
+
+Syntax
+Basic syntax of use DATABASE statement is as follows −
+
+use DATABASE_NAME
+
+Example
+If you want to use a database with name <mydb>, then use DATABASE statement would be as
+follows −
+
+>use mydb
+
+switched to db mydb
+
+To check your currently selected database, use the command db
+
+>db
+mydb
+
+If you want to check your databases list, use the command show dbs.
+
+>show dbs
+local 0.78125GB
+test 0.23012GB
+
+Your created database (mydb) is not present in list. To display database, you need 
+to insert at least one document into it.
+
+>db.movie.insert({"name":"tutorials point"})
+>show dbs
+local      0.78125GB
+mydb       0.23012GB
+test       0.23012GB
+
+COLLECTION:-
+
+The createCollection() Method
+MongoDB db.createCollection(name, options) is used to create collection.
+
+Syntax
+Basic syntax of createCollection() command is as follows −
+
+db.createCollection(name, options)
+
+Basic syntax of createCollection() method without options is as follows −
+
+>use test
+switched to db test
+>db.createCollection("mycollection")
+{ "ok" : 1 }
+>
+
+you can check the created collection by using the command show collections.
+
+>show collections
+mycollection
+system.indexes
+
+The following example shows the syntax of createCollection() method with few important
+ options −
+
+> db.createCollection("mycol", { capped : true, autoIndexID : true, size : 6142800, max : 10000 } ){
+"ok" : 0,
+"errmsg" : "BSON field 'create.autoIndexID' is an unknown field.",
+"code" : 40415,
+"codeName" : "Location40415"
+}
+>
+
+In MongoDB, you don't need to create collection. MongoDB creates collection automatically, when you insert some document.
+
+>db.tutorialspoint.insert({"name" : "tutorialspoint"}),
+WriteResult({ "nInserted" : 1 })
+>show collections
+mycol
+mycollection
+system.indexes
+tutorialspoint
+>
+
+DOCUMENT:-
+The insert() Method
+To insert data into MongoDB collection, you need to use MongoDB's insert() or save() method.
+
+Syntax
+The basic syntax of insert() command is as follows −
+
+>db.COLLECTION_NAME.insert(document)
+Example
+> db.users.insert({
+... _id : ObjectId("507f191e810c19729de860ea"),
+... title: "MongoDB Overview",
+... description: "MongoDB is no sql database",
+... by: "tutorials point",
+... url: "http://www.tutorialspoint.com",
+... tags: ['mongodb', 'database', 'NoSQL'],
+... likes: 100
+... })
+WriteResult({ "nInserted" : 1 })
+>
+
+The insertOne() method
+If you need to insert only one document into a collection you can use this method.
+
+Syntax
+The basic syntax of insert() command is as follows −
+
+>db.COLLECTION_NAME.insertOne(document)
+Example
+Following example creates a new collection named empDetails and inserts a document using the insertOne() method.
+
+> db.createCollection("empDetails")
+{ "ok" : 1 }
+> db.empDetails.insertOne(
+	{
+		First_Name: "Radhika",
+		Last_Name: "Sharma",
+		Date_Of_Birth: "1995-09-26",
+		e_mail: "radhika_sharma.123@gmail.com",
+		phone: "9848022338"
+	})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("5dd62b4070fb13eec3963bea")
+}
+>
+The insertMany() method
+You can insert multiple documents using the insertMany() method. To this method you need to pass an array of documents.
+Example
+Following example inserts three different documents into the empDetails collection using the insertMany() method.
+
+> db.empDetails.insertMany(
+	[
+		{
+			First_Name: "Radhika",
+			Last_Name: "Sharma",
+			Date_Of_Birth: "1995-09-26",
+			e_mail: "radhika_sharma.123@gmail.com",
+			phone: "9000012345"
+		},
+		{
+			First_Name: "Rachel",
+			Last_Name: "Christopher",
+			Date_Of_Birth: "1990-02-16",
+			e_mail: "Rachel_Christopher.123@gmail.com",
+			phone: "9000054321"
+		},
+		{
+			First_Name: "Fathima",
+			Last_Name: "Sheik",
+			Date_Of_Birth: "1990-02-16",
+			e_mail: "Fathima_Sheik.123@gmail.com",
+			phone: "9000054321"
+		}
+	]
+)
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5dd631f270fb13eec3963bed"),
+		ObjectId("5dd631f270fb13eec3963bee"),
+		ObjectId("5dd631f270fb13eec3963bef")
+	]
+}
+>

@@ -1,0 +1,44 @@
+Prerequisites for node JS 
+
+BASIC javascript
+Es5 & Es6
+Client server model
+
+
+1. JavaScript
+Node.js’s environment is developed for writing JavaScript code, hence we must have an 
+adequate understanding of the core and advanced concepts of JavaScript. These concepts
+include having knowledge about expressions, loops, data structures, callbacks, functions,
+objects, this keyword, event handlers, and other related topics. It is recommended to 
+brush up on your JavaScript concepts before learning Node.js.
+
+2. Asynchronous code
+Before diving into Node.js, you need to be well aware of asynchronous code and its working.
+Asynchronous code or architecture means the program can do multiple tasks simultaneously 
+without disturbing the main thread execution. JavaScript makes use of this model via 
+callbacks. The majority of the functions in Node.js are asynchronous in nature.
+
+3. CLI
+Command Line Interface also known as CLI is a text-based user interface through which you 
+can type commands to make your computer execute certain tasks. Once you are comfortable 
+with using CLI, then you will get a hang of running nvm, npm as well as executing your
+Node.js projects easily.
+
+4. NPM
+Node Package Manager or the NPM is a very powerful tool that helps in managing the 
+server-side dependencies of any Node.js project. Through NPM, one can easily install,
+upgrade or even delete various libraries or packages of JavaScript when required.
+NPM is not the only package manager that is compatible with Node.js, the most popular 
+package manager among developers is Yarn which was developed by the engineers at Facebook.
+
+5. HTTP
+In situations where you need to retrieve data from a data source or send certain data,
+you will need to make an API request to that server through HTTP. Having a basic knowledge 
+of HTTP requests and HTTP methods like GET, POST, PUT, PATCH, DELETE, etc., will be 
+beneficial for you while working on a web project.
+
+6. ES6+ Syntax
+Currently, for JavaScript, the ECMAScript 2015 or ES6 is the standard scripting language. 
+ES6 is the second major revision in JavaScript which involves important features like
+the let and const keyword, for loops, default parameters, arrow functions, classes, and 
+many more. Hence it is advised to be familiar with all these features.

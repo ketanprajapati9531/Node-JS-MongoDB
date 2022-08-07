@@ -1,0 +1,58 @@
+Read Operations
+The read operations allow you to supply special query filters and criteria that let you
+specify which documents you want. The MongoDB documentation contains more information 
+on the available query filters. Query modifiers may also be used to change how many
+results are returned.
+
+MongoDB has two methods of reading documents from a collection:
+
+db.collection.find()
+db.collection.findOne()
+
+find()
+In order to get all the documents from a collection, we can simply use the find()
+method on our chosen collection. Executing just the find() method with no arguments
+will return all records currently in the collection.
+
+
+>db.RecordsDB.find()         OR    db.RecordsDB.find().pretty()
+
+output:-
+{ "_id" : ObjectId("5fd98ea9ce6e8850d88270b5"), "name" : "Kitana", "age" : "4 years", "species" : "Cat", "ownerAddress" : "521 E. Cortland", "chipped" : true }
+{ "_id" : ObjectId("5fd993a2ce6e8850d88270b7"), "name" : "Marsh", "age" : "6 years", "species" : "Dog", "ownerAddress" : "380 W. Fir Ave", "chipped" : true }
+{ "_id" : ObjectId("5fd993f3ce6e8850d88270b8"), "name" : "Loo", "age" : "3 years", "species" : "Dog", "ownerAddress" : "380 W. Fir Ave", "chipped" : true }
+{ "_id" : ObjectId("5fd994efce6e8850d88270ba"), "name" : "Kevin", "age" : "8 years", "species" : "Dog", "ownerAddress" : "900 W. Wood Way", "chipped" : true }
+db
+
+
+
+
+
+>db.RecordsDB.find({"species":"Cat"})
+output:-
+
+{ "_id" : ObjectId("5fd98ea9ce6e8850d88270b5"), "name" : "Kitana", "age" : "4 years", "species" : "Cat", "ownerAddress" : "521 E. Cortland", "chipped" : true }
+
+
+
+
+
+
+findOne()
+In order to get one document that satisfies the search criteria, we can simply use the findOne() method on our chosen collection. If multiple documents satisfy the query, this method returns the first document according to the natural order which reflects the order of documents on the disk. If no documents satisfy the search criteria, the function returns null. The function takes the following form of syntax.
+
+db.{collection}.findOne({query}, {projection})
+Let's take the following collection—say, RecordsDB, as an example.
+
+{ "_id" : ObjectId("5fd98ea9ce6e8850d88270b5"), "name" : "Kitana", "age" : "8 years", "species" : "Cat", "ownerAddress" : "521 E. Cortland", "chipped" : true }
+{ "_id" : ObjectId("5fd993a2ce6e8850d88270b7"), "name" : "Marsh", "age" : "6 years", "species" : "Dog", "ownerAddress" : "380 W. Fir Ave", "chipped" : true }
+{ "_id" : ObjectId("5fd993f3ce6e8850d88270b8"), "name" : "Loo", "age" : "3 years", "species" : "Dog", "ownerAddress" : "380 W. Fir Ave", "chipped" : true }
+{ "_id" : ObjectId("5fd994efce6e8850d88270ba"), "name" : "Kevin", "age" : "8 years", "species" : "Dog", "ownerAddress" : "900 W. Wood Way", "chipped" : true }
+And, we run the following line of code:
+
+db.RecordsDB.find({"age":"8 years"})
+We would get the following result:
+
+{ "_id" : ObjectId("5fd98ea9ce6e8850d88270b5"), "name" : "Kitana", "age" : "8 years", "species" : "Cat", "ownerAddress" : "521 E. Cortland", "chipped" : true }
+Notice that even though two documents meet the search criteria, only the first document that matches the search condition is returned.
+
